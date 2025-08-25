@@ -23,8 +23,11 @@ percentage_bachelors = round((df[df['education'] == 'Bachelors'].shape[0] / df.s
     # What percentage of people without advanced education make more than 50K?
 
     # with and without `Bachelors`, `Masters`, or `Doctorate`
-higher_education = None
-lower_education = None
+higher_education = df[df['education'].isin(['Bachelors','Masters','Doctorate'])]
+lower_education = df[~df['education'].isin(['Bachelors','Masters','Doctorate'])]
+
+higher_education_rich = round((higher_education[higher_education['salary']=='>50K'].shape[0] / higher_education.shape[0]) * 100, 1)
+
 
     # percentage with salary >50K
 higher_education_rich = None
