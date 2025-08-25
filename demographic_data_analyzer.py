@@ -40,8 +40,9 @@ num_min_workers = df[df['hours-per-week']==min_work_hours]
 rich_percentage = round((num_min_workers[num_min_workers['salary']=='>50K'].shape[0] / num_min_workers.shape[0]) * 100, 1)
 
     # What country has the highest percentage of people that earn >50K?
-highest_earning_country = None
-highest_earning_country_percentage = None
+highest_earning_country = percentages.idxmax()
+highest_earning_country_percentage = percentages.max()
+
 
     # Identify the most popular occupation for those who earn >50K in India.
 top_IN_occupation = None
